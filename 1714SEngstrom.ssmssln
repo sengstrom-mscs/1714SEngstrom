@@ -9,6 +9,8 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714SEngstrom2a", "1714SEng
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714SEngstrom2B", "1714SEngstrom2B\1714SEngstrom2B.ssmssqlproj", "{A9A5B587-8911-4B51-9C01-FB27FF59B19C}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "1714SEngstrom2D", "1714SEngstrom2D\1714SEngstrom2D.ssmssqlproj", "{FF2374C1-42B3-4C13-A814-696371FB148B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
@@ -16,8 +18,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DFEA1051-74D5-4F6D-896E-8E192F0C02DB}.Default|Default.ActiveCfg = Default
 		{0833A051-4E05-4EAA-A057-4CA6F54B3B6D}.Default|Default.ActiveCfg = Default
-		{503C84D8-393A-452A-92C1-75515280D0DB}.Default|Default.ActiveCfg = Default
 		{A9A5B587-8911-4B51-9C01-FB27FF59B19C}.Default|Default.ActiveCfg = Default
+		{9118BCB8-D558-463E-8AAF-A3F18C36FFD1}.Default|Default.ActiveCfg = Default
+		{FF2374C1-42B3-4C13-A814-696371FB148B}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
