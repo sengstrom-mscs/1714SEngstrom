@@ -53,6 +53,12 @@
           <AssociatedConnUserName />
           <FullPath>SEngstromEx2F4.PNG</FullPath>
         </FileNode>
+        <FileNode Name="SEngstromEx2FDiagram.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SEngstromEx2FDiagram.PNG</FullPath>
+        </FileNode>
       </Items>
     </LogicalFolder>
   </Items>
