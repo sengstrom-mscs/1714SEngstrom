@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="1714SEngstrom2F">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="WIGGILA-ASUS:WIGGILA-ASUS\stace">
+          <Created>2020-10-31T14:27:53.3095518-05:00</Created>
+          <Type>SQL</Type>
+          <Server>WIGGILA-ASUS</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="1714SEngstrom2F.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:WIGGILA-ASUS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>WIGGILA-ASUS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1714SEngstrom2F.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="SEngstromEx2F1.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SEngstromEx2F1.PNG</FullPath>
+        </FileNode>
+        <FileNode Name="SEngstromEx2F2.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SEngstromEx2F2.PNG</FullPath>
+        </FileNode>
+        <FileNode Name="SEngstromEx2F3.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SEngstromEx2F3.PNG</FullPath>
+        </FileNode>
+        <FileNode Name="SEngstromEx2F4.PNG">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SEngstromEx2F4.PNG</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
