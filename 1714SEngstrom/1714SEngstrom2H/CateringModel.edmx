@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CateringModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CateringModelStoreContainer">
+    <EntitySet Name="People" EntityType="CateringModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Caterers" EntityType="CateringModel.Store.Caterers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menus" EntityType="CateringModel.Store.Menus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="CateringModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmpStatus" EntityType="CateringModel.Store.EmpStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="CateringModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contracts" EntityType="CateringModel.Store.Contracts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PersonEmployee" Association="CateringModel.Store.PersonEmployee">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentEmployee" Association="CateringModel.Store.DepartmentEmployee">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="EmploymentEmployee" Association="CateringModel.Store.EmploymentEmployee">
+      <End Role="Employment" EntitySet="EmpStatus" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="CatererContract" Association="CateringModel.Store.CatererContract">
+      <End Role="Caterer" EntitySet="Caterers" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="MenuContract" Association="CateringModel.Store.MenuContract">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Caterers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="Zip" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="EmpStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Person_Id" Type="int" Nullable="false" />
+    <Property Name="Department_Id" Type="int" Nullable="false" />
+    <Property Name="Employment_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contracts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Total" Type="decimal" Nullable="false" />
+    <Property Name="Caterer_Id" Type="int" Nullable="false" />
+    <Property Name="Menu_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PersonEmployee">
+    <End Role="Person" Type="CateringModel.Store.People" Multiplicity="1" />
+    <End Role="Employee" Type="CateringModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Person_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentEmployee">
+    <End Role="Department" Type="CateringModel.Store.Departments" Multiplicity="1" />
+    <End Role="Employee" Type="CateringModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmploymentEmployee">
+    <End Role="Employment" Type="CateringModel.Store.EmpStatus" Multiplicity="1" />
+    <End Role="Employee" Type="CateringModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Employment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CatererContract">
+    <End Role="Caterer" Type="CateringModel.Store.Caterers" Multiplicity="1" />
+    <End Role="Contract" Type="CateringModel.Store.Contracts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caterer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Caterer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MenuContract">
+    <End Role="Menu" Type="CateringModel.Store.Menus" Multiplicity="1" />
+    <End Role="Contract" Type="CateringModel.Store.Contracts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Menu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="CateringModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="CateringModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="People" EntityType="CateringModel.Person" />
+          <EntitySet Name="Caterers" EntityType="CateringModel.Caterer" />
+          <EntitySet Name="Menus" EntityType="CateringModel.Menu" />
+          <EntitySet Name="Departments" EntityType="CateringModel.Department" />
+          <EntitySet Name="EmpStatus" EntityType="CateringModel.EmpStatus" />
+          <EntitySet Name="Employees" EntityType="CateringModel.Employee" />
+          <EntitySet Name="Contracts" EntityType="CateringModel.Contract" />
+          <AssociationSet Name="PersonEmployee" Association="CateringModel.PersonEmployee">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentEmployee" Association="CateringModel.DepartmentEmployee">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="EmploymentEmployee" Association="CateringModel.EmploymentEmployee">
+            <End Role="Employment" EntitySet="EmpStatus" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="CatererContract" Association="CateringModel.CatererContract">
+            <End Role="Caterer" EntitySet="Caterers" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="MenuContract" Association="CateringModel.MenuContract">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" />
+          <NavigationProperty Name="Employees" Relationship="CateringModel.PersonEmployee" FromRole="Person" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Caterer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="35" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="35" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="35" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" />
+          <Property Name="Zip" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="35" />
+          <NavigationProperty Name="Contracts" Relationship="CateringModel.CatererContract" FromRole="Caterer" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="25" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="CateringModel.MenuContract" FromRole="Menu" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="25" />
+          <NavigationProperty Name="Employees" Relationship="CateringModel.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="CateringModel.EmploymentEmployee" FromRole="Employment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Person" Relationship="CateringModel.PersonEmployee" FromRole="Employee" ToRole="Person" />
+          <NavigationProperty Name="Department" Relationship="CateringModel.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Employment" Relationship="CateringModel.EmploymentEmployee" FromRole="Employee" ToRole="Employment" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Caterer" Relationship="CateringModel.CatererContract" FromRole="Contract" ToRole="Caterer" />
+          <NavigationProperty Name="Menu" Relationship="CateringModel.MenuContract" FromRole="Contract" ToRole="Menu" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Nullable="false" />
+        </EntityType>
+        <Association Name="PersonEmployee">
+          <End Type="CateringModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="CateringModel.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="DepartmentEmployee">
+          <End Type="CateringModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="CateringModel.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="EmploymentEmployee">
+          <End Type="CateringModel.EmpStatus" Role="Employment" Multiplicity="1" />
+          <End Type="CateringModel.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="CatererContract">
+          <End Type="CateringModel.Caterer" Role="Caterer" Multiplicity="1" />
+          <End Type="CateringModel.Contract" Role="Contract" Multiplicity="*" />
+        </Association>
+        <Association Name="MenuContract">
+          <End Type="CateringModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="CateringModel.Contract" Role="Contract" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CateringModelStoreContainer" CdmEntityContainer="CateringModelContainer">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caterers">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Caterer)">
+        <MappingFragment StoreEntitySet="Caterers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Menu)">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpStatus">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.EmpStatus)">
+        <MappingFragment StoreEntitySet="EmpStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="IsTypeOf(CateringModel.Contract)">
+        <MappingFragment StoreEntitySet="Contracts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PersonEmployee" TypeName="CateringModel.PersonEmployee" StoreEntitySet="Employees">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Person_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepartmentEmployee" TypeName="CateringModel.DepartmentEmployee" StoreEntitySet="Employees">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="Department_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmploymentEmployee" TypeName="CateringModel.EmploymentEmployee" StoreEntitySet="Employees">
+      <EndProperty Name="Employment">
+        <ScalarProperty Name="Id" ColumnName="Employment_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatererContract" TypeName="CateringModel.CatererContract" StoreEntitySet="Contracts">
+      <EndProperty Name="Caterer">
+        <ScalarProperty Name="Id" ColumnName="Caterer_Id" />
+      </EndProperty>
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MenuContract" TypeName="CateringModel.MenuContract" StoreEntitySet="Contracts">
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="Id" ColumnName="Menu_Id" />
+      </EndProperty>
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
