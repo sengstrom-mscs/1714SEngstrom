@@ -94,6 +94,13 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Apartment.datasource" />
+    <None Include="Properties\DataSources\Building.datasource" />
+    <None Include="Properties\DataSources\Invoice.datasource" />
+    <None Include="Properties\DataSources\LineItem.datasource" />
+    <None Include="Properties\DataSources\Person.datasource" />
+    <None Include="Properties\DataSources\PropertyManager2ModelContainer.datasource" />
+    <None Include="Properties\DataSources\Reciept.datasource" />
     <None Include="PropertyManager2Model.edmx.diagram">
       <DependentUpon>PropertyManager2Model.edmx</DependentUpon>
     </None>
