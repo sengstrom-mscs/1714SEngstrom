@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\1714SEngstrom2f.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\1714SEngstrom2f.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\1714SEngstrom2f.csproj",
+        "projectName": "1714SEngstrom2f",
+        "projectPath": "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\1714SEngstrom2f.csproj",
+        "packagesPath": "C:\\Users\\stace\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\stace\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

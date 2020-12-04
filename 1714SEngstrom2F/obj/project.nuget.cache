@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2xcoKszUoUpzOmWOYvxdzTTaEGEXqlbFMvtblh6lC2pQGTz6K2+l8ZLqPIYtEe9sPjnA2N0AeHtFIiN5hDT8Bw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\stace\\OneDrive\\Documents\\School\\Comc1714\\1714SEngstrom\\1714SEngstrom2f\\1714SEngstrom2f.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stace\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\stace\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

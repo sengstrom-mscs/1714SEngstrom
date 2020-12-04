@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-1714SEngstrom",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}

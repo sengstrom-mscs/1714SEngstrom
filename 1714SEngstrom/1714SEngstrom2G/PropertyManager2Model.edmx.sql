@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/31/2020 18:16:33
+-- Date Created: 11/29/2020 20:04:13
 -- Generated from EDMX file: C:\Users\stace\OneDrive\Documents\School\Comc1714\1714SEngstrom\1714SEngstrom\1714SEngstrom2G\PropertyManager2Model.edmx
 -- --------------------------------------------------
 
@@ -87,7 +87,7 @@ GO
 CREATE TABLE [dbo].[Apartments] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [ApartmentNum] nvarchar(10)  NOT NULL,
-    [SquarFeet] int  NOT NULL,
+    [SquareFeet] int  NOT NULL,
     [Bathrooms] int  NOT NULL,
     [Rent] decimal(18,0)  NOT NULL,
     [Building_Id] int  NOT NULL,

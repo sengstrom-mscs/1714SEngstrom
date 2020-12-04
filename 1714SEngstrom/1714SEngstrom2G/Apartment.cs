@@ -22,7 +22,7 @@ namespace _1714SEngstrom2G
     
         public int Id { get; set; }
         public string ApartmentNum { get; set; }
-        public int SquarFeet { get; set; }
+        public int SquareFeet { get; set; }
         public int Bathrooms { get; set; }
         public decimal Rent { get; set; }
     
